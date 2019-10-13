@@ -1,4 +1,24 @@
 function primeFactors(num) {
+  let currentPrimeFactor = 2;
+
+  // while the number is not equal to the currentPrimeFactor
+  while (num !== currentPrimeFactor) {
+    // check if the current num is divisible by the currentPrimeFactor
+    if (num % currentPrimeFactor === 0) {
+      // if num is divisible, then divide num by the currentPrimeFactor and try again
+      num = num / currentPrimeFactor;
+    } else {
+      // if not divisible, then increment the currentPrimeFactor and keep going
+      currentPrimeFactor++;
+    }
+  }
+
+  console.log(currentPrimeFactor);
+}
+
+/*
+// 2nd
+function primeFactors(num) {
   let largestPossibleFactor = Math.floor(Math.sqrt(num));
   let primeFactor = 0;
 
@@ -16,8 +36,10 @@ function primeFactors(num) {
 
   console.log(primeFactor);
 }
+*/
 
 /*
+// 1st
 function primeFactors(num) {
   let currentSmallestDivisor = 2;
   let primeFactorsArr = [];
