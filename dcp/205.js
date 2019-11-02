@@ -20,12 +20,19 @@ function findAllPermutations(string) {
     }
   }
 
-  console.log(results)
   return results
 }
 
 function nextAbsolutePermutation(string) {
+  let permutationsArray = findAllPermutations(string)
+  let numPermArray = permutationsArray.map(el => Number(el)).sort()
 
+  for (let i = 0; i < numPermArray.length; i++) {
+    if (Number(string) === numPermArray[i]) {
+      console.log(numPermArray[i + 1])
+      return numPermArray[i + 1]
+    }
+  }
 }
 
-findAllPermutations('123')
+nextAbsolutePermutation('213')
