@@ -25,33 +25,20 @@ var lengthOfLongestSubstring = function(s) {
 
   // return longestSubstring.length;
 
-  var longestSubstringLength = 0;
-
-  for (var i = 0; i < s.length; i++) {
-    for (var j = i + 1; j <= s.length; j++) {
-      if (duplicateCheck(s, i, j)) {
-        longestSubstringLength = Math.max(longestSubstringLength, j - i);
-      }
-    }
-  }
-
-  return longestSubstringLength;
-};
-
-var duplicateCheck = function(string, start, end) {
+  var longestSubstringLength = 0, i = 0, j = 0;
   var stringSet = new Set();
 
-  for (var i = start; i < end; i++) {
-    var stringValue = string.charAt(i);
-
-    if (stringSet.has(stringValue)) {
-      return false;
+  while (i < s.length && j < s.length) {
+    if (!stringSet.has(s.charAt(j))) {
+      stringSet.add(s.charAt(j++));
+      longestSubstringLength = Math.max(longestSubstringLength, j - i);
+    } else {
+      stringSet.delete(s.charAt(i++));
     }
-
-    stringSet.add(stringValue);
   }
 
-  return true;
-}
+  console.log(longestSubstringLength);
+  return longestSubstringLength;
+};
 
 lengthOfLongestSubstring("dvdf");
