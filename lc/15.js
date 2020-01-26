@@ -6,11 +6,10 @@ Note: The solution set must not contain duplicate triplets.
 
 const threeSum = (numsArr) => {
   let resultArr = [];
-  let storeArr = [];
 
   for (let i = 0; i < numsArr.length; i+=1) {
-    for (let j = 1; j < numsArr.length; j+=1) {
-      for (let k = 2; k < numsArr.length; k+=1) {
+    for (let j = i + 1; j < numsArr.length; j+=1) {
+      for (let k = j + 1; k < numsArr.length; k+=1) {
         if (numsArr[i] + numsArr[j] + numsArr[k] === 0) {
           resultArr.push([numsArr[i], numsArr[j], numsArr[k]]);
         }
