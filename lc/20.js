@@ -24,12 +24,16 @@ const isValid = function(s) {
   for (let i = 0; i < s.length; i+=1) {
     const currentChar = s[i];
     const lastChar = stack[stack.length - 1];
+    // deleteChar checks the map for corresponding "opening" char to be removed
     const deleteChar = map[currentChar];
     
+    // if deleteChar exists or currentChar is a "closing" char
     if (deleteChar) {
+      // if deleteChar from map is the same as the lastChar on the stack
       if (deleteChar === lastChar) {
         stack.pop();
       } else {
+        // return false because of wrong order
         return false;
       }
     } else {
