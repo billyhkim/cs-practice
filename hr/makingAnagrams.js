@@ -26,7 +26,7 @@ function makeAnagram(a, b) {
       map[cur]--;
     }
     return map;
-  }, stringAMap);
+  }, {...stringAMap});
 
   let total = 0;
   for (let key in charMap) {
