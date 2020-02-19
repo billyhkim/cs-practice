@@ -48,3 +48,28 @@ const firstPairSumOpt = (arr, target) => {
 // firstPairSum([3,4,2,1,4,7,8], 8);
 // firstPairSum([1,5,2,4,9,5], 8);
 firstPairSumOpt([3,4,2,1,7,8], 8);
+
+
+/*
+// From DW for sorted
+const findPair = (input, target) => {
+  let lowest = 0;
+  let highest = input.length - 1;
+
+  while ( lowest < highest ) {
+    const check = input[highest] + input[lowest];
+    
+    if (check > target) {
+      highest--;
+    };
+    if (check < target) {
+      lowest++;
+    };
+    if (check === target) {
+      return [input[lowest], input[highest]];
+    }
+  };
+
+  return 'no pairs found';
+};
+*/
