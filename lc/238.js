@@ -26,3 +26,34 @@ const productExceptSelf = nums => {
   
   return results;
 };
+
+// optimized using front-to-back + back-to-front, accumulating multiplier
+const productExceptSelfOpt = nums => {
+  // 1. start with new array with all 1 (to prep for multiply)
+  const result = new Array(nums.length).fill(1);
+  // 2. multiplier initially equal to 1
+  let multiplier = 1;
+  
+  // 3. forward iteration
+  for (let i = 0; i < nums.length; i++) {
+    // 3a. at current result value, multiply by accumulated multiplier (note: it will multiply all the accumulated multiples up to the value before itself)
+    result[i] *= multiplier;
+    // 3b. add multiple to the accumulated multiplier
+    multiplier *= nums[i];
+  }
+  
+  // 4. reset multiplier to go back-to-front
+  multiplier = 1;
+  
+  // 5. backward iteration
+  for (let j = nums.length - 1; j >= 0; j--) {
+    // 5a. at current result value, multiply by reset accumulated multiplier
+    result[j] *= multiplier;
+    // 5b. add multiple to the multipler going other way
+    multiplier *= nums[j];
+  }
+  
+  return result;
+};
+
+productExceptSelfOpt([1, 2, 3, 4]);
