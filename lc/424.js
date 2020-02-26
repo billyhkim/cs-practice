@@ -26,8 +26,12 @@ const characterReplacement = (s, k) => {
     stringMap[string[right]] = stringMap[string[right]] + 1 || 1;
     mostFreq = Math.max(mostFreq, stringMap[string[right]]);
 
+    // note: right - left + 1 is equal to the length of the window
+    // while the length of the window minus the most frequent character accounted (in current window) is greater than the amount of changes we can make--meaning, we have exceeded the amount of changes in the current window
     while (right - left + 1 - mostFreq > changeAmount) {
+      // decrement the char that is now outside of the window on the left
       stringMap[string[left]]--;
+      // shorten window on left
       left++;
     }
 
