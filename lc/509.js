@@ -23,4 +23,16 @@ const fib = function(N) {
   return fibArr[fibArr.length - 1];
 };
 
+const fibOpt = function(N) {
+  let fibSeq = [0, 1];
+  if (N === 0) return fibSeq[0];
+  if (N === 1) return fibSeq[1];
+
+  for (let i = 2; i <= N; i++) {
+    fibSeq.push(fibSeq[i-1] + fibSeq[i-2]);
+  }
+
+  return fibSeq[fibSeq.length - 1];
+};
+
 fib(4);
