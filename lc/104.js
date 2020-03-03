@@ -16,8 +16,8 @@ return its depth = 3.
 const maxDepth = (root) => {
   let maxDepth = 0; 
   let DFS = (node, level) => {
-      if(node === null) return
-      if(level > maxDepth) maxDepth = level; 
+      if (node === null) return;
+      if (level > maxDepth) maxDepth = level; 
       DFS(node.left, level +1)
       DFS(node.right, level +1)    
   }
