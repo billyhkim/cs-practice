@@ -17,12 +17,12 @@ const maxDepth = (root) => {
   let maxDepth = 0; 
   let DFS = (node, level) => {
       if (node === null) return;
-      if (level > maxDepth) maxDepth = level; 
-      DFS(node.left, level +1)
-      DFS(node.right, level +1)    
+      if (level > maxDepth) maxDepth = level;
+      DFS(node.left, level + 1);
+      DFS(node.right, level + 1);
   }
   DFS(root, 1);
-  return maxDepth
+  return maxDepth;
 };
 
 // one-line recursive
