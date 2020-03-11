@@ -11,21 +11,30 @@ If there is such window, you are guaranteed that there will always be only one u
 */
 
 const minWindow = function(s, t) {
+  // 1. create character map of t
   const map = t.split('').reduce((acc, cur) => {
     acc[cur] ? acc[cur]++ : acc[cur] = 1;
     return acc;
   }, {});
-  let left = 0, right = 0, count = Object.keys(map).length, result = '';
+  // 2. initialize left and right pointers, as well as count to track when any char count in t goes to 0
+  let left = 0, right = -1, count = Object.keys(map).length, result = '';
 
+  // 3. continue loop based on right pointer
   while (right <= s.length) {
+    // 4. while suitable window has not been fulfilled
     if (count !== 0) {
-      const rightChar = s[right];
-      if (map[rightChar] !== null) map[rightChar]--;
-      if (map[rightChar] === 0) count--;
       right++;
+      const rightChar = s[right];
+      // if current char is in map, decrement char
+      if (map[rightChar] !== null) map[rightChar]--;
+      // if current char in t is fulfilled, decrement count
+      if (map[rightChar] === 0) count--;
     } else {
+      // if the window has been satisfied, move left pointer forward
       const leftChar = s[left];
+      // check current left char and increment on map because will now be disregarded
       if (map[leftChar] !== null) map[leftChar]++;
+      // if left char is greater than 0 now, increase the count since window is no longer satisfied
       if (map[leftChar] > 0) count++;
       
       let currentWindow = s.substring(left, right + 1);
