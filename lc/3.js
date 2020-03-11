@@ -2,29 +2,33 @@
 Given a string, find the length of the longest substring without repeating characters.
 */
 const lengthOfLongestSubstring = s => {
-  // var stringArray = s.split('');
-  // var longestSubstring = '';
-  // var newString = '';
+  var stringArray = s.split('');
+  var longestSubstring = '';
+  var newString = '';
   
-  // // log every substring before a repeating character
-  // for (var i = 0; i < stringArray.length; i++) {
-  //   if (!newString.includes(stringArray[i])) {
-  //     newString += stringArray[i]; 
-  //   } else {
-  //     if (newString.length > longestSubstring.length) {
-  //       longestSubstring = newString;
-  //     }
-  //     newString = '';
-  //     newString += stringArray[i];
-  //   }
-  // }
+  // log every substring before a repeating character
+  for (var i = 0; i < stringArray.length; i++) {
+    if (!newString.includes(stringArray[i])) {
+      newString += stringArray[i]; 
+    } else {
+      if (newString.length > longestSubstring.length) {
+        longestSubstring = newString;
+      }
+      newString = '';
+      newString += stringArray[i];
+    }
+  }
 
-  // if (newString.length > longestSubstring.length) {
-  //   longestSubstring = newString;
-  // }
+  if (newString.length > longestSubstring.length) {
+    longestSubstring = newString;
+  }
 
-  // return longestSubstring.length;
+  return longestSubstring.length;
+};
 
+lengthOfLongestSubstring("dvdf");
+
+const lengthOfLongestSubstringOpt = s => {
   let longestSubstringLength = 0;
   let i = 0;
   let j = 0;
@@ -40,6 +44,6 @@ const lengthOfLongestSubstring = s => {
   }
 
   return longestSubstringLength;
-};
+}
 
-lengthOfLongestSubstring("dvdf");
+lengthOfLongestSubstringOpt("pwwkeyw");

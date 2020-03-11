@@ -14,7 +14,7 @@ return its depth = 3.
 
 // inner recursive
 const maxDepth = (root) => {
-  let maxDepth = 0; 
+  let maxDepth = 0;
   let DFS = (node, level) => {
       if (node === null) return;
       if (level > maxDepth) maxDepth = level;
