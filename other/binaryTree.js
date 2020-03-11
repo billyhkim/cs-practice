@@ -78,9 +78,9 @@ BST.insert(9);
 BST.insert(27);
 
 let root = BST.getRootNode();
-// BST.inOrderTraversal(root);
+BST.inOrderTraversal(root);
 // BST.preOrderTraversal(root);
-BST.postOrderTraversal(root);
+// BST.postOrderTraversal(root);
 
 //          15
 //         /  \
