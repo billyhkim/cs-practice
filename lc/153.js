@@ -24,4 +24,8 @@ const findMin = function(nums) {
   return result;
 };
 
+const findMinOneLine = nums => {
+  return Math.min(...nums);
+};
+
 findMin([3,4,5,1,2]);
