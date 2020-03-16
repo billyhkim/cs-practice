@@ -10,14 +10,18 @@ If there is no such window in S that covers all characters in T, return the empt
 If there is such window, you are guaranteed that there will always be only one unique minimum window in S.
 */
 
-const minWindow = function(s, t) {
+const minWindow = (s, t) => {
   // 1. create character map of t
   const map = t.split('').reduce((acc, cur) => {
+    // eslint-disable-next-line no-unused-expressions
     acc[cur] ? acc[cur]++ : acc[cur] = 1;
     return acc;
   }, {});
   // 2. initialize left and right pointers, as well as count to track when any char count in t goes to 0
-  let left = 0, right = -1, count = Object.keys(map).length, result = '';
+  let left = 0;
+  let right = -1;
+  let count = Object.keys(map).length;
+  let result = '';
 
   // 3. continue loop based on right pointer
   while (right <= s.length) {
@@ -36,8 +40,8 @@ const minWindow = function(s, t) {
       if (map[leftChar] !== null) map[leftChar]++;
       // if left char is greater than 0 now, increase the count since window is no longer satisfied
       if (map[leftChar] > 0) count++;
-      
-      let currentWindow = s.substring(left, right + 1);
+
+      const currentWindow = s.substring(left, right + 1);
       if (result === '') {
         result = currentWindow;
       } else {
